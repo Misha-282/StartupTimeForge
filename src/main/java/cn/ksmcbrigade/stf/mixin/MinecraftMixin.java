@@ -29,8 +29,8 @@ public class MinecraftMixin {
 
         long timeMillis = ManagementFactory.getRuntimeMXBean().getUptime();
         float time = ((float) (timeMillis / 1000.0D));
-        Component title = Component.translatable("stf.time", Float.parseFloat(String.format("%.2f", time).replace("Format error:", "")));
-        SystemToast.addOrUpdate(this.toast, SystemToast.SystemToastIds.PERIODIC_NOTIFICATION, title, this.languageManager.getSelected().equals("zh_cn") ? (time * 3F > 100F ? Component.nullToEmpty("打败了全国" + String.format("%.2f", time/3F) + "%的玩家"):Component.nullToEmpty("打败了全国" + String.format("%.2f", time * 3F) + "%的玩家")):Component.empty());
+        Component title = Component.translatable("stf.time", Float.parseFloat(String.format("%.1f", time).replace("Format error:", "")));
+        SystemToast.addOrUpdate(this.toast, SystemToast.SystemToastIds.PERIODIC_NOTIFICATION, title, this.languageManager.getSelected().equals("zh_cn") ? (Component.nullToEmpty("打败了全国99.9%的玩家")) : Component.empty());
         startupTimeForge$startup = false;
     }
 }
